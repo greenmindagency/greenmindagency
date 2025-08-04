@@ -1,0 +1,30 @@
+*
+https://greenmindagency.com/digital-marketing-company-egypt/
+
+converted to keyword digital marketing company names
+
+
+
+* Tags
+** add the latest articles when we generate content in articles
+** add prices if avalaible 
+
+* pages
+- convert careers and contacts page to flixable
+
+
+
+
+* fix old clients thumbnails
+
+
+* add prices for email marketing
+
+
+
+
+<?php if ( is_front_page() && is_home() ) {?>
+<?php is_front_page() ? bloginfo('description') : wp_title(''); ?> | <?php bloginfo('name'); ?>
+
+<?php if ( is_front_page() && is_home() ) {?>
+<?php is_front_page() ? bloginfo('description') : wp_title(''); ?>
