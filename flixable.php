@@ -1460,7 +1460,7 @@ $final_price = 'EGP ' . $formatted_price;
         echo trim(preg_replace('/\s\s+/', '<li class="list-group-item list-group-item-dark"> ', $elements_highlighted));
     }
     if (!empty($title_2)) {
-        echo $title_2 . " or " . "EGP " . number_format(round((preg_replace('/\$/', '', $title_2) * getEgpRate()), -2), 0, '.', ',');
+        echo ' ' . $title_2 . " or " . "EGP " . number_format(round((preg_replace('/\$/', '', $title_2) * getEgpRate()), -2), 0, '.', ',');
     }
 ?>
 </li>
