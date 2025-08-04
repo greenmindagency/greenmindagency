@@ -1408,8 +1408,8 @@ while ( have_rows('package') ) : the_row();
 $title_1 = get_sub_field('title_1');
 $title_2 = get_sub_field('title_2');	 
 $title_3 = get_sub_field('title_3');
-$elements = get_sub_field('elements');
-$elements_highlighted = get_sub_field('elements_highlighted');
+$elements = get_sub_field('elements') ?: '';
+$elements_highlighted = get_sub_field('elements_highlighted') ?: '';
 $cta = get_sub_field('cta');
 $cta_link = get_sub_field('cta_link');
    ?>
@@ -1447,27 +1447,24 @@ $final_price = 'EGP ' . $formatted_price;
 <ul class="list-group list-group-flush p-3 bg-light">
          
          
+<?php if (!empty($elements)) : ?>
 <li class="list-group-item">
-
-<?php echo $elements = trim(preg_replace('/\s\s+/', '<li class="list-group-item"> ', $elements));  ?>
+<?php echo trim(preg_replace('/\s\s+/', '<li class="list-group-item"> ', $elements)); ?>
 </li>
+<?php endif; ?>
 
-
+<?php if (!empty($elements_highlighted) || !empty($title_2)) : ?>
 <li class="list-group-item list-group-item-dark">
-
-<?php echo $elements_highlighted = trim(preg_replace('/\s\s+/', '<li class="list-group-item list-group-item-dark"> ', $elements_highlighted));  ?> 
-
 <?php
-// get title 2 for customised prices addons
-if (!empty($title_2)) {
-	echo $title_2 . " or " ."EGP " . number_format(round((preg_replace('/\$/', '', $title_2) * getEgpRate()), -2), 0, '.', ',');
-}
+    if (!empty($elements_highlighted)) {
+        echo trim(preg_replace('/\s\s+/', '<li class="list-group-item list-group-item-dark"> ', $elements_highlighted));
+    }
+    if (!empty($title_2)) {
+        echo $title_2 . " or " . "EGP " . number_format(round((preg_replace('/\$/', '', $title_2) * getEgpRate()), -2), 0, '.', ',');
+    }
 ?>
-
-	
-
-	
 </li>
+<?php endif; ?>
 
 
          </ul>         
